@@ -1,0 +1,29 @@
+{
+  "name": "email-aggregator",
+  "version": "1.0.0",
+  "description": "A feature-rich onebox email aggregator with AI-powered features",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "nodemon src/index.js",
+    "test": "jest"
+  },
+  "dependencies": {
+    "@elastic/elasticsearch": "^8.10.0",
+    "@slack/webhook": "^7.0.1",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "hnswlib-node": "^1.4.2",
+    "imap": "^0.8.19",
+    "mailparser": "^3.6.5",
+    "openai": "^4.88.0"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "nodemon": "^3.0.2"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

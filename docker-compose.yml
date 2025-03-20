@@ -1,0 +1,32 @@
+services:
+  app:
+    build: .
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/usr/src/app
+    environment:
+      - NODE_ENV=development
+      - ELASTICSEARCH_URL=http://elasticsearch:9200
+      - SLACK_WEBHOOK_URL=your_slack_webhook_url
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - EMAIL=shivam1309.be21@chitkara.edu.in
+      - EMAIL_PASSWORD=${EMAIL_PASSWORD}
+      - IMAP_HOST=imap.gmail.com
+      - IMAP_PORT=993
+      - PORT=3000
+    depends_on:
+      - elasticsearch
+
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:8.10.0
+    environment:
+      - discovery.type=single-node
+      - xpack.security.enabled=false
+    ports:
+      - "9200:9200"
+    volumes:
+      - elasticsearch_data:/usr/share/elasticsearch/data
+
+volumes:
+  elasticsearch_data:
